@@ -4,7 +4,7 @@ if [[ $1 == 'train' ]]; then
     echo 'Run training...'
     python train.py \
         --cuda \
-        --data /scratch/cluster/kelleher/enwik8/ \
+        --data ../../data/enwik8/ \
         --dataset enwik8 \
         --n_layer 12 \
         --d_model 512 \
@@ -27,7 +27,7 @@ elif [[ $1 == 'eval' ]]; then
     echo 'Run evaluation...'
     python eval.py \
         --cuda \
-        --data /scratch/cluster/kelleher/enwik8/ \
+        --data ../../data/enwik8/ \
         --dataset enwik8 \
         --tgt_len 80 \
         --mem_len 2100 \
