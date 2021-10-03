@@ -17,24 +17,24 @@ from utils.exp_utils import create_exp_dir
 from utils.data_parallel import BalancedDataParallel
 
 parser = argparse.ArgumentParser(description='PyTorch Transformer Language Model')
-parser.add_argument('--data', type=str, default='/scartch/cluster/kellehr/wikitext-103',
+parser.add_argument('--data', type=str, default='../../data/penn/',
                     help='location of the data corpus')
-parser.add_argument('--dataset', type=str, default='wt103',
-                    choices=['wt103', 'lm1b', 'enwik8', 'text8', 'wt2'],
+parser.add_argument('--dataset', type=str, default='ptb',
+                    choices=['wt103', 'lm1b', 'enwik8', 'text8', 'wt2', 'ptb'],
                     help='dataset name')
 parser.add_argument('--n_layer', type=int, default=12,
                     help='number of total layers')
-parser.add_argument('--n_head', type=int, default=10,
+parser.add_argument('--n_head', type=int, default=8,
                     help='number of heads')
-parser.add_argument('--d_head', type=int, default=50,
+parser.add_argument('--d_head', type=int, default=64,
                     help='head dimension')
 parser.add_argument('--d_embed', type=int, default=-1,
                     help='embedding dimension')
-parser.add_argument('--d_model', type=int, default=500,
+parser.add_argument('--d_model', type=int, default=512,
                     help='model dimension')
-parser.add_argument('--d_inner', type=int, default=1000,
+parser.add_argument('--d_inner', type=int, default=2048,
                     help='inner dimension in FF')
-parser.add_argument('--dropout', type=float, default=0.0,
+parser.add_argument('--dropout', type=float, default=0.1,
                     help='global dropout rate')
 parser.add_argument('--dropatt', type=float, default=0.0,
                     help='attention probability dropout rate')
@@ -70,25 +70,25 @@ parser.add_argument('--clip', type=float, default=0.25,
                     help='gradient clipping')
 parser.add_argument('--clip_nonemb', action='store_true',
                     help='only clip the gradient of non-embedding params')
-parser.add_argument('--max_step', type=int, default=100000,
+parser.add_argument('--max_step', type=int, default=2000,
                     help='upper epoch limit')
-parser.add_argument('--batch_size', type=int, default=60,
+parser.add_argument('--batch_size', type=int, default=16,
                     help='batch size')
 parser.add_argument('--batch_chunk', type=int, default=1,
                     help='split batch into chunks to save memory')
-parser.add_argument('--tgt_len', type=int, default=70,
+parser.add_argument('--tgt_len', type=int, default=128,
                     help='number of tokens to predict')
-parser.add_argument('--eval_tgt_len', type=int, default=50,
+parser.add_argument('--eval_tgt_len', type=int, default=100,
                     help='number of tokens to predict for evaluation')
 parser.add_argument('--ext_len', type=int, default=0,
                     help='length of the extended context')
-parser.add_argument('--mem_len', type=int, default=0,
+parser.add_argument('--mem_len', type=int, default=128,
                     help='length of the retained previous heads')
 parser.add_argument('--not_tied', action='store_true',
                     help='do not tie the word embedding and softmax weights')
 parser.add_argument('--seed', type=int, default=1111,
                     help='random seed')
-parser.add_argument('--cuda', action='store_true',
+parser.add_argument('--cuda', action='store_true', default=True, 
                     help='use CUDA')
 parser.add_argument('--adaptive', action='store_true',
                     help='use adaptive softmax')
@@ -100,9 +100,9 @@ parser.add_argument('--varlen', action='store_true',
                     help='use variable length')
 parser.add_argument('--multi_gpu', action='store_true',
                     help='use multiple GPU')
-parser.add_argument('--log-interval', type=int, default=200,
+parser.add_argument('--log-interval', type=int, default=100,
                     help='report interval')
-parser.add_argument('--eval-interval', type=int, default=4000,
+parser.add_argument('--eval-interval', type=int, default=1000,
                     help='evaluation interval')
 parser.add_argument('--work_dir', default='LM-TFM', type=str,
                     help='experiment directory.')
@@ -121,7 +121,7 @@ parser.add_argument('--clamp_len', type=int, default=-1,
                     help='use the same pos embeddings after clamp_len')
 parser.add_argument('--eta_min', type=float, default=0.0,
                     help='min learning rate for cosine scheduler')
-parser.add_argument('--gpu0_bsz', type=int, default=-1,
+parser.add_argument('--gpu0_bsz', type=int, default=4,
                     help='batch size on gpu 0')
 parser.add_argument('--max_eval_steps', type=int, default=-1,
                     help='max eval steps')

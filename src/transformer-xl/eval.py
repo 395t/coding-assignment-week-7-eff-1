@@ -11,31 +11,31 @@ from mem_transformer import MemTransformerLM
 from utils.exp_utils import get_logger
 
 parser = argparse.ArgumentParser(description='PyTorch Transformer Language Model')
-parser.add_argument('--data', type=str, default='../data/wikitext-103',
+parser.add_argument('--data', type=str, default='../../data/wikitext-2/',
                     help='location of the data corpus')
-parser.add_argument('--dataset', type=str, default='wt103',
-                    choices=['wt103', 'lm1b', 'enwik8', 'text8'],
+parser.add_argument('--dataset', type=str, default='wt2',
+                    choices=['wt103', 'lm1b', 'enwik8', 'text8', 'wt2', 'ptb'],
                     help='dataset name')
 parser.add_argument('--split', type=str, default='all',
                     choices=['all', 'valid', 'test'],
                     help='which split to evaluate')
 parser.add_argument('--batch_size', type=int, default=10,
                     help='batch size')
-parser.add_argument('--tgt_len', type=int, default=5,
+parser.add_argument('--tgt_len', type=int, default=80,
                     help='number of tokens to predict')
 parser.add_argument('--ext_len', type=int, default=0,
                     help='length of the extended context')
-parser.add_argument('--mem_len', type=int, default=0,
+parser.add_argument('--mem_len', type=int, default=150,
                     help='length of the retained previous heads')
-parser.add_argument('--clamp_len', type=int, default=-1,
+parser.add_argument('--clamp_len', type=int, default=150,
                     help='max positional embedding index')
-parser.add_argument('--cuda', action='store_true',
+parser.add_argument('--cuda', action='store_true', default=True,
                     help='use CUDA')
-parser.add_argument('--work_dir', type=str, required=True,
+parser.add_argument('--work_dir', type=str,  default="./LM-TFM-wt2/20211002-183239/",
                     help='path to the work_dir')
 parser.add_argument('--no_log', action='store_true',
                     help='do not log the eval result')
-parser.add_argument('--same_length', action='store_true',
+parser.add_argument('--same_length', action='store_true', default=True,
                     help='set same length attention with masking')
 args = parser.parse_args()
 assert args.ext_len >= 0, 'extended context length must be non-negative'

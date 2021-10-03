@@ -16,10 +16,12 @@ if [[ $1 == 'train' ]]; then
         --optim adam \
         --lr 0.00025 \
         --warmup_step 0 \
-        --max_step 400000 \
-        --tgt_len 512 \
-        --mem_len 512 \
-        --eval_tgt_len 128 \
+        --log-interval 100 \
+        --eval-interval 999 \
+        --max_step 1000 \
+        --tgt_len 150 \
+        --mem_len 150 \
+        --eval_tgt_len 64 \
         --batch_size 22 \
         --gpu0_bsz 4 \
         ${@:2}
@@ -30,10 +32,11 @@ elif [[ $1 == 'eval' ]]; then
         --data ../../data/enwik8/ \
         --dataset enwik8 \
         --tgt_len 80 \
-        --mem_len 2100 \
-        --clamp_len 820 \
+        --mem_len 150 \
+        --clamp_len 150 \
         --same_length \
         --split test \
+        --work_dir ./LM-TFM-enwik8/20211002-163828/
         ${@:2}
 else
     echo 'unknown argment 1'
