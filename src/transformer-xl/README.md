@@ -2,6 +2,9 @@ Much of the content (training script, utils, etc) of this directory is originall
 
 Some of the content has been modified by Matthew Kelleher
 
+README from original repo:
+___ 
+
 ## Introduction
 
 This directory contains our pytorch implementation of Transformer-XL. Note that our state-of-the-art results reported in the paper were obtained by training the model on a large-scale TPU cluster, and our pytorch codebase currently does not support distributed training. Here we provide two sets of hyperparameters and scripts:
