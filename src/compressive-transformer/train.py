@@ -4,9 +4,11 @@ from compressive_transformer_pytorch.autoregressive_wrapper import Autoregressiv
 import random
 import tqdm
 import zipfile
+import math
 import numpy as np
 import os
 import requests
+import sys
 import torch
 import torch.optim as optim
 from torch import Tensor
@@ -18,17 +20,17 @@ from torchtext.vocab import build_vocab_from_iterator
 
 # constants
 
-NUM_BATCHES = int(1e5)
+NUM_BATCHES = int(1500)
 BATCH_SIZE = 16
 MAX_BATCH_SIZE = 4
 LEARNING_RATE = 1e-4
 VALIDATE_EVERY  = 100
 
-GENERATE_EVERY  = 500
+GENERATE_EVERY  = 1500
 PRIME_LENGTH    = 512
 GENERATE_LENGTH = 1024
 
-SEQ_LEN = 512
+SEQ_LEN = int(sys.argv[2])
 NUM_SEGMENTS = 4
 
 # helpers
@@ -61,7 +63,7 @@ class TextSamplerDataset(Dataset):
     def __len__(self):
         return self.data.size(0) // self.total_len
 
-dataset_name = 'enwik8'
+dataset_name = sys.argv[1]
 
 if dataset_name == 'enwik8':
     enwik8_path = "./data/enwik8.zip"
@@ -137,7 +139,7 @@ for i in tqdm.tqdm(range(NUM_BATCHES), mininterval=10., desc='training'):
         loss = mlm_loss + aux_loss
         (loss / grad_accum_every).backward()
 
-        print(f'training loss: {mlm_loss.item():.4f} | aux_loss: {aux_loss.item():.4f}')
+        #print(f'training loss: {mlm_loss.item():.4f} | aux_loss: {aux_loss.item():.4f}')
 
         if is_last:
             torch.nn.utils.clip_grad_norm_(model.parameters(), 0.5)
@@ -147,8 +149,13 @@ for i in tqdm.tqdm(range(NUM_BATCHES), mininterval=10., desc='training'):
     if (i+1) % VALIDATE_EVERY == 0:
         model.eval()
         with torch.no_grad():
+            total_loss = 0
+            num_losses = 0
             for loss, aux_loss, _ in model(next(val_loader), return_loss = True):
-                print(f'validation loss: {loss.item():.4f}')
+                total_loss += loss.item()
+                num_losses += 1
+            total_loss /= num_losses
+            print(f'valid loss: {total_loss:.4f} | valid ppl: {math.exp(total_loss):.4f}')
 
     if (i+1) % GENERATE_EVERY == 0:
         model.eval()
