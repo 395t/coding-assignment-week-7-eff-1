@@ -17,12 +17,12 @@ from utils.exp_utils import create_exp_dir
 from utils.data_parallel import BalancedDataParallel
 
 parser = argparse.ArgumentParser(description='PyTorch Transformer Language Model')
-parser.add_argument('--data', type=str, default='../../data/penn/',
+parser.add_argument('--data', type=str, default='../../data/enwik8/',
                     help='location of the data corpus')
-parser.add_argument('--dataset', type=str, default='ptb',
+parser.add_argument('--dataset', type=str, default='enwik8',
                     choices=['wt103', 'lm1b', 'enwik8', 'text8', 'wt2', 'ptb'],
                     help='dataset name')
-parser.add_argument('--n_layer', type=int, default=12,
+parser.add_argument('--n_layer', type=int, default=8,
                     help='number of total layers')
 parser.add_argument('--n_head', type=int, default=8,
                     help='number of heads')
@@ -72,7 +72,7 @@ parser.add_argument('--clip_nonemb', action='store_true',
                     help='only clip the gradient of non-embedding params')
 parser.add_argument('--max_step', type=int, default=2000,
                     help='upper epoch limit')
-parser.add_argument('--batch_size', type=int, default=16,
+parser.add_argument('--batch_size', type=int, default=32,
                     help='batch size')
 parser.add_argument('--batch_chunk', type=int, default=1,
                     help='split batch into chunks to save memory')

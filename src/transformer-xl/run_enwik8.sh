@@ -17,12 +17,12 @@ if [[ $1 == 'train' ]]; then
         --lr 0.00025 \
         --warmup_step 0 \
         --log-interval 100 \
-        --eval-interval 999 \
-        --max_step 1000 \
+        --eval-interval 1000 \
+        --max_step 2000 \
         --tgt_len 150 \
         --mem_len 150 \
-        --eval_tgt_len 64 \
-        --batch_size 22 \
+        --eval_tgt_len 100 \
+        --batch_size 32 \
         --gpu0_bsz 4 \
         ${@:2}
 elif [[ $1 == 'eval' ]]; then
