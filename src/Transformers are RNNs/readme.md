@@ -60,3 +60,13 @@ For WikiText2 and PennTreebank dataset, shorter sequence length seems to bring b
 ![image](https://user-images.githubusercontent.com/35536646/135793803-6ee1fec1-84d7-4d9a-87ba-95ed20da78a5.png)
 
 
+## Run Time Comparison
+Clearly Linear attention has faster run time. However, the difference is not that obvious due to the small size of the datasets and the length of sequence is not too long. (We use length of 250 in these experiments.)
+
+|   | Linear | Full | 
+|---|---|---|
+|  WikiText2 | 3.58 | 3.84 |  
+|  PennTreebank | 0.98 | 1.09 |  
+|  EnWik8 | 26.89 | 27.37  | 
+
+
