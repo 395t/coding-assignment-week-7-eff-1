@@ -69,9 +69,9 @@ The hyper parameters used in the fine-tuning process are as follows:
 
 |  Dataset | Valid Perplexity | Train Steps/sec | 
 |---|---|---|
-|  WikiText-2 | 93.57 | 1.826 |  
+|  WikiText-2 | 93.6 | 1.826 |  
 |  Enwik8 | 74.9 | 0.016 |
-|  PennTreeBank | 1514.6 | 0.012 |
+|  PennTreeBank | 154.6 | 0.012 |
 
 Note: The model on wikitext-2 was tuned on a different machine than other two.
 
@@ -221,7 +221,7 @@ Clearly Linear attention has faster run time. However, the difference is not tha
 |   | EnWik8 | WikiText-2 | Penn Tree Bank | 
 |---|---|---|---|
 |  Transformer-XL | 4.393 | 123.108 | 91.249 |
-|  Sparse Transformer | 74.9 | 93.57 | 1514.6 |
+|  Sparse Transformer | 74.9 | 93.6 | 154.6 |
 |  Compressive Transformer | 3.831 | 119.601 | 96.665 |
 |  Reformer | 24.92 | 14.49 | 13.29 |
 |  Transformers are RNNs | 3.49 | 167.51 | 133.34 |
