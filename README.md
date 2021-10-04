@@ -104,7 +104,7 @@ Training performed in Google Colab.
 |  Sparse Transformer |  |  |  |
 |  Compressive Transformer |  |  |  |
 |  Reformer | 24.92 | 14.49 | 13.29 |
-|  Transformers are RNNs |  |  |  |
+|  Transformers are RNNs | 3.49 | 167.51 | 133.34 |
 
 
 ## Reference
