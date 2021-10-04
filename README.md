@@ -65,6 +65,31 @@ Training time correlated linearly with model depth.
 We see trends that are similar to the ones for sequence length. Performance was again not affected very much.
 
 ## Reformer
+Reformer is a highly memory efficient transformer model. In these experiments, Axial Position Encodings were not used, as the Huggingface implementation of fine tuning a pretrained model did not offer straightforward compatibility with the the axial encodings activated (requiring sequence lengths of 500k tokens). Therefore, the model was tuned and tested on sequence lengths of 256, 2048, and 16k tokens, as longer sequences were not feasible due to memory limitations. The experiments demonstrated that typically, an increase in sequence length leads to faster training times at the cost of higher perplexity upon evaulation. 
+
+A pretrained Reformer model was used, specifically a variant trained by Google AI on an English translation of the novel Crime and Punishment by Fyodor Dostoyevsky. This model uses subword level tokenization, and the tokenizer trained on the same text was used for all experiments. While the model was tuned on the training sets, the tokenizer was not tuned on the datasets, thus using a fixed vocabulary across all experiments. This approach was selected to hold as many variables constant while experimenting with different sequence lengths.  
+
+Training performed in Google Colab. 
+### Evaluation Perplexity
+| Seq Len  | wt2 | ptb | ew8 |
+|---|---|---|---|
+|  256 | 14.49 | **13.29**  |  67.08 |
+|  2048 | 26.18 |  **24.54** |  32.99 |
+|  16384 | 29.33  | 28.84  |  **24.92** |
+### Training Runtime
+| Seq Len  | wt2 | ptb | ew8 |
+|---|---|---|---|
+|  256 | 1:11:32.24 | 0:29:33.46  |  7:05:43.91 |
+|  2048 | 0:33:10.46 |  0:13:24.65 |  4:07:58.78 |
+|  16384 | 0:26:46.93  | 0:09:41.03  |  2:59:54.07 |
+
+![wt2-train](notebooks/reformer/img/wt2_train.png)
+![wt2-val](notebooks/reformer/img/wt2_val.png)
+![ptb-train](notebooks/reformer/img/ptb_train.png)
+![ptb-train](notebooks/reformer/img/ptb_val.png)
+![en8-train](notebooks/reformer/img/en8_train.png)
+![en8-train](notebooks/reformer/img/en8_val.png)
+
 
 ## Transformers are RNNs
 
@@ -78,11 +103,13 @@ We see trends that are similar to the ones for sequence length. Performance was 
 |  Transformer-XL | 4.393 | 123.108 | 91.249 |
 |  Sparse Transformer |  |  |  |
 |  Compressive Transformer |  |  |  |
-|  Reformer |  |  |  |
+|  Reformer | 24.92 | 14.49 | 13.29 |
 |  Transformers are RNNs |  |  |  |
 
 
 ## Reference
 
-Transformer-XL code is based on [this repo](https://github.com/kimiyoung/transformer-xl)
-
+Transformer-XL code is based on [this repo](https://github.com/kimiyoung/transformer-xl)  
+https://huggingface.co/blog/reformer  
+https://huggingface.co/transformers/training.html    
+https://huggingface.co/transformers/perplexity.html
