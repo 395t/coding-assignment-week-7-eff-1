@@ -68,6 +68,7 @@ The hyper parameters used in the fine-tuning process are as follows:
 |  Enwik8 | 794.9 | 0.016 |
 |  PennTreeBank | 1514.6 | 0.012 |
 
+Note: The model on wikitext-2 was tuned on a different machine than other two.
 
 ## Compressive Transformer
 
