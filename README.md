@@ -56,13 +56,13 @@ The code to re-run the fine-tuning is present in the notebook [here](https://git
 
 The hyper parameters used in the fine-tuning process are as follows:
 
-* MAX_SEQ_LENGTH = 160
-* BATCH_SIZE = 32
-* BLOCK_SIZE = 16
-* NUM_RANDOM_BLOCKS = 2
-* LR = 2e-5
-* WEIGHT_DECAY = 0.01
-* EPOCHS = 3
+** MAX_SEQ_LENGTH = 160
+** BATCH_SIZE = 32
+** BLOCK_SIZE = 16
+** NUM_RANDOM_BLOCKS = 2
+** LR = 2e-4
+** WEIGHT_DECAY = 0.01
+** EPOCHS = 3
 
 
 #### Perplexity and Speed Results
