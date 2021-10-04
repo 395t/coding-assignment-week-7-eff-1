@@ -2,6 +2,10 @@
 
 ## Code Structure
 
+Sparse Transformer and Reformer code can be found in notebooks/
+
+Transformer-XL, Compressive Transformer, and Transformers are RNNs code can be found in src/
+
 ## Task and Datasets  
 ### Causal Language Modeling 
 Causal Language modeling consists of predicting the next token in a sequence of tokens. 
