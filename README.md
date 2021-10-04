@@ -52,6 +52,15 @@ Somewhat puzzlingly, using a sequence length of 2048 took four times as a long t
 ![WikiText-2](https://user-images.githubusercontent.com/34489261/135774642-8c584f06-dbc9-40bb-88a7-c0583526a39b.png)
 ![PennTreebank](https://user-images.githubusercontent.com/34489261/135774673-354e1437-b0d1-41e9-8848-b889b3274521.png)
 
+| Seq Len | EnWik8 | WikiText-2 | PTB |
+|---|---|---|---|
+|  64 | 5.627 | 177.71 | 138.23 |
+|  128 | 4.860 | 163.61 | 119.79 |
+|  256 | 4.604 | 150.11 | **96.67** |
+|  512 | 4.233 | 147.29 | 131.90 |
+|  1024 | 4.084 | **119.60** | 123.93 |
+|  2048 | **3.831** | 184.58 | 140.77 |
+
 Overall, sequence length did not affect performance significantly. We see that only for enwik8 did having a long sequence length improve performance. For the other two datasets, sequence lengths of 128 to 512 performed well comparably. The reason a longer sequence length performs worse could possibly be explained by the fact that there are little dependencies between words that are so far apart. Only for character level modeling are there any meaningful dependencies. On the other hand, shorter sequence lengths hide information that could be helpful in processing the current tokens.
 
 ### Model Depth
@@ -163,7 +172,7 @@ For WikiText2 and PennTreebank dataset, shorter sequence length seems to bring b
 |---|---|---|---|
 |  Transformer-XL | 4.393 | 123.108 | 91.249 |
 |  Sparse Transformer |  |  |  |
-|  Compressive Transformer |  |  |  |
+|  Compressive Transformer | 3.831 | 119.601 | 96.665 |
 |  Reformer | 24.92 | 14.49 | 13.29 |
 |  Transformers are RNNs | 3.49 | 167.51 | 133.34 |
 
