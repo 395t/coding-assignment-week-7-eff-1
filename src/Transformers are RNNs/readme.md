@@ -3,6 +3,13 @@ The model is based on [this paper](https://arxiv.org/pdf/2006.16236.pdf).
 
 We borrow the code for model from [this repo](https://github.com/idiap/fast-transformers) and some preprocessing code from [pytorch tutorial](https://pytorch.org/tutorials/beginner/transformer_tutorial.html).
 
+## How to run the code
+For WikiText2 and PennTreebank
+`python train.py` 
+For Enwik8
+`python train_E.py`
+
+The testing scripts are also in the training scripts, just set TEST=True in the script. Also, the hyperparameters and training settings are set by the `config` dictionary in the script. 
 
 ## Experiments
 ### 
