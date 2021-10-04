@@ -45,6 +45,30 @@ We observe very strange behavior with the 16 layer model on the Penn Tree Bank d
 
 ## Sparse Transformer
 
+This is a regular tranformer with a sparse attention mechanism to reduce the complexity from n^2 to n.srqt(n). This was first proposed in the 2019 paper "Generating Long Sequences with Sparse Transformers" with two variants - strided attention and fixed attention. Here, we use a pre-trained BigBird ("	Big Bird: Transformers for Longer Sequences") model which also uses blocksparse attention as proposed by the original paper, and then fine-tune it on 3 text datasets - Enwik8, TextWiki-2 and PennTreeBank for the task of language modelling. The pre-trained model was obtained from Hugging Face here: https://huggingface.co/transformers/model_doc/bigbird.html#bigbirdformaskedlm.
+
+The code to re-run the fine-tuning is present in the notebook at notebooks/Sparse_transformer/Sparse_transformer.ipynb. The notebook can be directly run in Google colab without any pre-installation required. One needs to just select the dataset name and specify the hyper-parameters (default values mentioned below) at the beginning of the notebook and hit run all.
+
+The hyper parameters used in the fine-tuning process are as follows:
+
+* MAX_SEQ_LENGTH = 160
+* BATCH_SIZE = 32
+* BLOCK_SIZE = 16
+* NUM_RANDOM_BLOCKS = 2
+* LR = 2e-5
+* WEIGHT_DECAY = 0.01
+* EPOCHS = 3
+
+
+#### Perplexity and Speed Results
+
+|  Dataset | Valid Perplexity | Train Steps/sec | 
+|---|---|---|
+|  WikiText-2 | 93.57 | 1.826 |  
+|  Enwik8 | 794.9 | 0.016 |
+|  PennTreeBank | 1514.6 | 0.012 |
+
+
 ## Compressive Transformer
 
 Our base model had 8 layers with 8 attention heads. The memory and compressed memory sizes match the sequence length, which was 512. We used the compressed memory ratio recommended in the paper, which was 4.
