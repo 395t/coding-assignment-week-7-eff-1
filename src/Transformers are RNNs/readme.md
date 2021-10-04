@@ -31,6 +31,8 @@ We try to vary the number of parameters, which affects the capacity of the model
 ### Varying Number of Layers
 As the model becomes deeper, the perplexity tends to decrease. This indicates that larger model capacity can enhace model performance. 
 
+![image](https://user-images.githubusercontent.com/35536646/135784476-02294812-3857-429b-9986-74206fbf6f7b.png)
+
 
 
 ## Comparison of Attention Type
