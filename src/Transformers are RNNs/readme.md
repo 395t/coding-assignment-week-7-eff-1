@@ -23,6 +23,8 @@ From the figure, we can see that batch size=16 yield the best results. There is 
 ### Varying Learning Rate
 We can see that the learning rate of 0.00005 is the best across the two datasets (WikiText2 and PennTreebank). Due to the training time, we just use the best learning rate (5e-5) for enwik8.  
 
+![image](https://user-images.githubusercontent.com/35536646/135784553-10747c1b-8493-45b9-8cf8-d4f2555fdd88.png)
+
 
 ## Results on Number of Parameters
 We try to vary the number of parameters, which affects the capacity of the model. We experiment with models of 2, 5, 8, 11 layers and observe how these models perform on the end tasks. 
@@ -30,6 +32,8 @@ We try to vary the number of parameters, which affects the capacity of the model
 
 ### Varying Number of Layers
 As the model becomes deeper, the perplexity tends to decrease. This indicates that larger model capacity can enhace model performance. 
+
+![image](https://user-images.githubusercontent.com/35536646/135784476-02294812-3857-429b-9986-74206fbf6f7b.png)
 
 
 
