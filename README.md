@@ -69,16 +69,20 @@ We see trends that are similar to the ones for sequence length. Performance was 
 ## Transformers are RNNs
 
 
-The summary can contain but is not limited to:
+## Conclusions
 
-- Code structure.
+##### Aggregate Preplexity Results
 
-- Commands to reproduce your experiments.
+|   | EnWik8 | WikiText-2 | Penn Tree Bank | 
+|---|---|---|---|
+|  Transformer-XL | 4.393 | 123.108 | 91.249 |
+|  Sparse Transformer |  |  |  |
+|  Compressive Transformer |  |  |  |
+|  Reformer |  |  |  |
+|  Transformers are RNNs |  |  |  |
 
-- Write-up of your findings and conclusions.
-
-- Ipython notebooks can be organized in `notebooks`.
 
 ## Reference
 
-Any code that you borrow or other reference should be properly cited.
+Transformer-XL code is based on [this repo](https://github.com/kimiyoung/transformer-xl)
+
