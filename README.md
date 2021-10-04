@@ -10,6 +10,7 @@ Transformer-XL, Compressive Transformer, and Transformers are RNNs code can be f
 ### Causal Language Modeling 
 Causal Language modeling consists of predicting the next token in a sequence of tokens. 
 ### enwik8  
+enwik8 is a dataset that consists of 100MB of the raw html of Wikipedia pages. It is often used for character level language modeling, so no tokenization is necessary.
 ### Penn Treebank  
 The English Penn Treebank (PTB) corpus, and in particular the section of the corpus corresponding to the articles of Wall Street Journal (WSJ), is one of the most known and used corpus for the evaluation of models for sequence labelling. The task consists of annotating each word with its Part-of-Speech tag. In the most common split of this corpus, sections from 0 to 18 are used for training (38 219 sentences, 912 344 tokens), sections from 19 to 21 are used for validation (5 527 sentences, 131 768 tokens), and sections from 22 to 24 are used for testing (5 462 sentences, 129 654 tokens). The corpus is also commonly used for character-level and word-level Language Modelling.  
 ### WikiText-2  
