@@ -95,10 +95,10 @@ We observe very strange behavior with the 16 layer model on the Penn Tree Bank d
 |---|---|---|
 |  EnWik8_8 | 4.705 | 234.76 |  
 |  EnWik8_12 | 4.416 | 470.15  |  
-|  EnWik8_16 | 4.393 | 472.20  |
+|  EnWik8_16 | **4.393** | 472.20  |
 |  WikiText-2_8 | 133.080 | 296.99 |
 |  WikiText-2_12 | 126.021 | 387.55 |
-|  WikiText-2_15 | 123.108 | 495.67 |
+|  WikiText-2_15 | **123.108** | 495.67 |
 |  PTB_8 | 96.605 | 248.05 |
-|  PTB_12 | 91.249 | 360.85 |
+|  PTB_12 | **91.249** | 360.85 |
 |  PTB_16 | 651.929 | 490.60 |
