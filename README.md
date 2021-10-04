@@ -156,7 +156,6 @@ We borrow the code for model from [this repo](https://github.com/idiap/fast-tran
   - Different learning rates
 - Number of parameters
   - Different numbers of layers
-  - Different numbers of attention heads
 - Linear attention v.s. full attention 
 - Varying sequence length
 
