@@ -10,9 +10,11 @@
 
 ## Compressive Transformer
 
-I used a 8-layer model with 8 attention heads.
+Our base model had 8 layers with 8 attention heads. The memory and compressed memory sizes match the sequence length, which was 512. We used the compressed memory ratio recommended in the paper, which was 4.
 
-I optimized my model using the Adam Optimizer with a learning rate of 1e-4.
+We optimized the model using Adam with a learning rate of 1e-4.
+
+We trained the model using Condor. Somewhat puzzlingly, using a sequence length of 2048 took four times as a long to train as our base model of 512, yet smaller sequence lengths trained in approximately the same amount of time as base. 
 
 ![enwik8](https://user-images.githubusercontent.com/34489261/135774640-450cdbe7-95c9-4928-8a8c-463d648c6231.png)
 ![WikiText-2](https://user-images.githubusercontent.com/34489261/135774642-8c584f06-dbc9-40bb-88a7-c0583526a39b.png)
