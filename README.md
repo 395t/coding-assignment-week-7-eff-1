@@ -172,7 +172,7 @@ We can see that the learning rate of 0.00005 is the best across the two datasets
 **WikiText2**
 
 ![Webp net-resizeimage (4)](https://user-images.githubusercontent.com/35536646/135793976-55291923-53ae-4f9a-9d4e-66b658762910.png)
-![Webp net-resizeimage (5)](https://user-images.githubusercontent.com/35536646/135912990-f90bc59b-db35-4acb-9b12-7ca13e193497.png)
+![Webp net-resizeimage (7)](https://user-images.githubusercontent.com/35536646/135913382-2358d92d-15cc-47a4-9ad0-89d67bb45dca.png)
 
 
 **PennTreebank**
