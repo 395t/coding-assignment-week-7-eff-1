@@ -3,6 +3,7 @@ The model is based on [this paper](https://arxiv.org/pdf/2006.16236.pdf).
 
 We borrow the code for model from [this repo](https://github.com/idiap/fast-transformers) and some preprocessing code from [pytorch tutorial](https://pytorch.org/tutorials/beginner/transformer_tutorial.html).
 
+
 ## Experiments
 ### 
 - Hyperparameters
@@ -16,18 +17,21 @@ We borrow the code for model from [this repo](https://github.com/idiap/fast-tran
 
 ## Results on Hyperparameters
 ### Varying Batch Size
+From the figure, we can see that batch size=16 yield the best results. There is not a big difference between batch size of 16 and 64 though. When batch size is too small, the gradient step each update is too random and might not lead the parameters to a good local minimum. When the batch size is too large, one possible reason for its inferior performance is the number of examples becomes smaller if we train for equal number of epochs.
 
 ### Varying Learning Rate
-We can see that the learning rate of 0.0005 is the best across different datasets.
+We can see that the learning rate of 0.00005 is the best across the two datasets (WikiText2 and PennTreebank). Due to the training time, we just use the best learning rate (5e-5) for enwik8.  
 
 ## Results on Number of Parameters
-### Varying Number of Layers
-As the model becomes deeper, the perplexity tends to decrease. This indicates that larger model capacity can enhace model performance.
+We try to vary the number of parameters, which affects the capacity of the model. We experiment with models of 2, 5, 8, 11 layers and observe how these models perform on the end tasks. 
 
-### Varying Number of Attention Heads
+### Varying Number of Layers
+As the model becomes deeper, the perplexity tends to decrease. This indicates that larger model capacity can enhace model performance. 
+![截圖 2021-10-03 下午9 03 42](https://user-images.githubusercontent.com/35536646/135783253-e53a34b0-8735-4fec-a9c9-c0a918ca1521.png)
 
 ## Comparison of Attention Type
-As can be seen in the figure below, different attention types seem not to affect the result too much. On language modeling tasks, transformer with linear attention does not sacrifice performance.
+As can be seen in the figure below, different attention types seem not to affect the result too much (see the scale). Note here we use the best-performing hyperparameters on linear attention models, but we can assuem the two models would performa similarly when carefully tuned. On language modeling tasks, transformer with linear attention does not sacrifice performance.
 
 
 ## Comparison of Sequence Length
+
