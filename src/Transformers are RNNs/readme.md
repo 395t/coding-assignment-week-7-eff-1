@@ -5,8 +5,11 @@ We borrow the code for model from [this repo](https://github.com/idiap/fast-tran
 
 ## How to run the code
 For WikiText2 and PennTreebank
+
 `python train.py` 
+
 For Enwik8
+
 `python train_E.py`
 
 The testing scripts are also in the training scripts, just set TEST=True in the script. Also, the hyperparameters and training settings are set by the `config` dictionary in the script. 
