@@ -23,9 +23,12 @@ From the figure, we can see that batch size=16 yield the best results. There is 
 ### Varying Learning Rate
 We can see that the learning rate of 0.00005 is the best across the two datasets (WikiText2 and PennTreebank). Due to the training time, we just use the best learning rate (5e-5) for enwik8.  
 
-###### WikiText2
+**WikiText2**
 
-###### PennTreebank
+![Webp net-resizeimage (2)](https://user-images.githubusercontent.com/35536646/135790763-1790aacb-4d1b-4110-be74-58b98c8e9719.png)
+![Webp net-resizeimage (3)](https://user-images.githubusercontent.com/35536646/135790767-48f6346b-817a-4ba3-a16d-d97b9d66f07d.png)
+
+**PennTreebank**
 ![Webp net-resizeimage](https://user-images.githubusercontent.com/35536646/135790231-8f61c1f9-384b-45b1-beb9-b440056d1413.png)
 ![Webp net-resizeimage (1)](https://user-images.githubusercontent.com/35536646/135790276-6d11beca-0f46-431b-9112-0e963edd180f.png)
 
