@@ -49,7 +49,12 @@ As the model becomes deeper, the perplexity tends to decrease. This indicates th
 ## Comparison of Attention Type
 As can be seen in the figure below, different attention types seem not to affect the result too much (see the scale). Note here we use the best-performing hyperparameters on linear attention models, but we can assuem the two models would performa similarly when carefully tuned. On language modeling tasks, transformer with linear attention does not sacrifice performance.
 
+![image](https://user-images.githubusercontent.com/35536646/135793688-46659fef-dcb4-442e-af1d-8cb26df6b7b9.png)
 
 
 ## Comparison of Sequence Length
+For WikiText2 and PennTreebank dataset, shorter sequence length seems to bring better results. One possible reason is that for longer texts, the transformer might need to encode longer dependency, which can be more complicated for a medium-sized model (only 8 layers). For enwik8, longer sequences give better result. We think the reason is that this is a character-level language modeling dataset, which might need longer dependency to determine the next character. (e.g. 250 characters might only be about 30 words)
+
+![image](https://user-images.githubusercontent.com/35536646/135793803-6ee1fec1-84d7-4d9a-87ba-95ed20da78a5.png)
+
 
