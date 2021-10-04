@@ -103,6 +103,12 @@ Training time correlated linearly with model depth.
 ![WikiText-2](https://user-images.githubusercontent.com/34489261/135784531-927f048e-7411-47d8-8cb6-e9da832e0bda.png)
 ![PennTreebank](https://user-images.githubusercontent.com/34489261/135784534-9e078f52-52e5-4a45-9a17-2694b794d3af.png)
 
+| Depth | EnWik8 | WikiText-2 | PTB |
+|---|---|---|---|
+|  4 | 4.499 | 156.70 | 121.87 |
+|  8 | 4.234 | **147.28** | 131.90 |
+|  16 | **3.916** | 158.97 | **118.46** |
+
 We see trends that are similar to the ones for sequence length. Performance was again not affected very much.
 
 ## Reformer
