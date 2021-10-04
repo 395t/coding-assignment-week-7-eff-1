@@ -110,7 +110,9 @@ We borrow the code for model from [this repo](https://github.com/idiap/fast-tran
 
 ### Results on Hyperparameters
 #### Varying Batch Size
-From the figure, we can see that batch size=16 yield the best results. There is not a big difference between batch size of 16 and 64 though. When batch size is too small, the gradient step each update is too random and might not lead the parameters to a good local minimum. When the batch size is too large, one possible reason for its inferior performance is the number of examples becomes smaller if we train for equal number of epochs.
+From the figure, we can see that batch size=16 yield the best results. For WikiText2 and PennTreebank, there is not a big difference between batch size of 16 and 64; for Enwik8, there is little difference between batch size of 4 and 16. When batch size is too small, the gradient step each update is too random and might not lead the parameters to a good local minimum. When the batch size is too large, one possible reason for its inferior performance is the number of examples becomes smaller if we train for equal number of epochs.
+
+![image](https://user-images.githubusercontent.com/35536646/135794907-ea726dfa-5a91-405f-a404-37b6367d7e03.png)
 
 
 #### Varying Learning Rate
