@@ -49,7 +49,7 @@ As the model becomes deeper, the perplexity tends to decrease. This indicates th
 ## Comparison of Attention Type
 As can be seen in the figure below, different attention types seem not to affect the result too much (see the scale). Note here we use the best-performing hyperparameters on linear attention models, but we can assuem the two models would performa similarly when carefully tuned. On language modeling tasks, transformer with linear attention does not sacrifice performance.
 
-![image](https://user-images.githubusercontent.com/35536646/135793688-46659fef-dcb4-442e-af1d-8cb26df6b7b9.png)
+![image](https://user-images.githubusercontent.com/35536646/135793845-2bd830ad-5a77-47a1-ac2a-75ab60f6b888.png)
 
 
 ## Comparison of Sequence Length
