@@ -6,7 +6,7 @@
 
 ## Transformer-XL
 
-Created models with 8, 12, and 16 layers each with 8 attention heads. Models were trained with 10% droppout, learning rate 0.00025 and optimized with adam.
+Trained models with 8, 12, and 16 layers each with 8 attention heads. Models were trained with 10% droppout, learning rate 0.00025 and optimized with adam.
 
 Models were trained on a NVIDIA RTX 2060. 
 
