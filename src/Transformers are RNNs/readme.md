@@ -26,7 +26,6 @@ We can see that the learning rate of 0.00005 is the best across the two datasets
 **WikiText2**
 
 ![Webp net-resizeimage (4)](https://user-images.githubusercontent.com/35536646/135793976-55291923-53ae-4f9a-9d4e-66b658762910.png)
-
 ![Webp net-resizeimage (3)](https://user-images.githubusercontent.com/35536646/135790767-48f6346b-817a-4ba3-a16d-d97b9d66f07d.png)
 
 
