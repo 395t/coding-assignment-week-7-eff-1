@@ -6,6 +6,12 @@
 
 ## Transformer-XL
 
+<img width="375px" src="src/transformer-xl/figures/enwik8_loss.png"/>
+
+<img width="375px" src="src/transformer-xl/figures/wikitext2_loss.png"/>
+
+<img width="375px" src="src/transformer-xl/figures/ptb_loss.png"/>
+
 ## Sparse Transformer
 
 ## Compressive Transformer
