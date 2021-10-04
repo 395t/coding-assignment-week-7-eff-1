@@ -25,7 +25,7 @@ We can see that the learning rate of 0.00005 is the best across the two datasets
 
 ![train_P](https://user-images.githubusercontent.com/35536646/135790003-89099e91-ba6a-44ad-8152-37d0e6f7f6b0.png)
 
-![valid_P](https://user-images.githubusercontent.com/35536646/135790008-26750e0d-1b40-4663-b438-8993fb72517b.png)
+![valid_P](https://user-images.githubusercontent.com/35536646/135790089-6d797016-86fc-4193-a256-7bd91c5d151a.png)
 
 ## Results on Number of Parameters
 We try to vary the number of parameters, which affects the capacity of the model. We experiment with models of 2, 5, 8, 11 layers and observe how these models perform on the end tasks. 
