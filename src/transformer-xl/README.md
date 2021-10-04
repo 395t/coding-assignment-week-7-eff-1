@@ -67,3 +67,14 @@ The pytorch implementation produces similar results to the TF codebase under the
 
 - `Text8` character-level language modeling: check out `run_text8_base.sh`
 - `lm1b` word-level language modeling: check out `run_lm1b_base.sh`
+
+
+___ 
+
+## Transformer-XL
+
+<img width="375px" src="src/transformer-xl/figures/enwik8_loss.png"/>
+
+<img width="375px" src="src/transformer-xl/figures/wikitext2_loss.png"/>
+
+<img width="375px" src="src/transformer-xl/figures/ptb_loss.png"/>
