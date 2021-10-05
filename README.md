@@ -53,7 +53,10 @@ We observe very strange behavior with the 16 layer model on the Penn Tree Bank d
 
 This is a regular transformer with a sparse attention mechanism to reduce the complexity in each layer from n^2 to n.srqt(n). This was first proposed in the 2019 paper "Generating Long Sequences with Sparse Transformers" with two variants - strided attention and fixed attention. Here, we use a pre-trained BigBird ("Big Bird: Transformers for Longer Sequences") model which also uses blocksparse attention as proposed by the original paper, and then fine-tune it on 3 text datasets - Enwik8, TextWiki-2 and PennTreeBank for the task of masked language modelling. The pre-trained model was obtained from [HuggingFace](https://huggingface.co/transformers/model_doc/bigbird.html#bigbirdformaskedlm) and the following notebook was followed in implementing the fine-tuning: [Link](https://colab.research.google.com/github/huggingface/notebooks/blob/master/examples/language_modeling.ipynb). The model specifications are:
 
-768-dimensional input embeddings followed by a 12-layered architecture for the encoder. Each layer of the encoder has a block sparse self attention module and a  dense output layer. The model employs layer norm in each layer. The encoder is followed by a linear pooler layer with tanh activation. Finally, the output module has couple of dense layers including one for the decoder to generate predictions.
+* 768-dimensional embeddings and hidden size 
+* 12-layered encoder-decoder architecture
+* Block sparse self attention modules
+* Layer normalization in each layer
 
 
 The code to re-run the fine-tuning is present in the notebook [here](https://github.com/395t/coding-assignment-week-7-eff-1/blob/main/notebooks/Sparse_transformer/Sparse_transformer.ipynb). The notebook can be directly run in Google colab without any pre-installation required. One needs to just select the dataset name and specify the hyper-parameters (default values mentioned below) at the beginning of the notebook and hit run all.
