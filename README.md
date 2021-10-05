@@ -77,7 +77,9 @@ The hyper parameters used in the fine-tuning process are as follows:
 |  Enwik8 | 74.9 | 0.016 |
 |  PennTreeBank | 154.6 | 0.012 |
 
-Note: The model on wikitext-2 was tuned on GPU and the others on CPU.
+The perplexity results on every dataset is quite bad because we couldn't run the training for long enough time and with large enough data because of constraints on the resources. Cuda kept going out of memory on colab and condor with more reasonable choices of max sequence length such as 1024. Eventually, we had to train on CPU which was extremely slow.
+
+Note: The model on wikitext-2 was tuned on GPU and the others on CPU. 
 
 ## Compressive Transformer
 
