@@ -2,7 +2,8 @@
 
 ## Code Structure
 
-Sparse Transformer and Reformer code can be found in notebooks/
+Sparse Transformer and Reformer code can be found in notebooks/  
+* To train on enwik8 in Reformer notebook, download and upzip the dataset. Provide the path to the unzipped set in the training args section.
 
 Transformer-XL, Compressive Transformer, and Transformers are RNNs code can be found in src/
 
@@ -124,6 +125,17 @@ Reformer is a highly memory efficient transformer model. In these experiments, A
 
 A pretrained Reformer model was used, specifically a variant trained by Google AI on an English translation of the novel Crime and Punishment by Fyodor Dostoyevsky. This model uses subword level tokenization, and the tokenizer trained on the same text was used for all experiments. While the model was tuned on the training sets, the tokenizer was not tuned on the datasets, thus using a fixed vocabulary across all experiments. This approach was selected to hold as many variables constant while experimenting with different sequence lengths.  
 
+### Model Architecture & Hyperparams
+* 6-layer  
+* 256-hidden  
+* 2-heads  
+* 3M parameters   
+* Adafactor optimizer
+* Learning Rate: 0.0002    
+* Weight Decay: 0.01
+* Batch Size: 16
+* Epochs: 30 
+
 Training performed in Google Colab. 
 ### Evaluation Perplexity
 | Seq Len  | wt2 | ptb | ew8 |
@@ -143,9 +155,69 @@ Training performed in Google Colab.
 ![ptb-train](notebooks/reformer/img/ptb_train.png)
 ![ptb-train](notebooks/reformer/img/ptb_val.png)
 ![en8-train](notebooks/reformer/img/en8_train.png)
-![en8-train](notebooks/reformer/img/en8_val.png)
+![en8-train](notebooks/reformer/img/en8_val.png)  
 
+### Memory Benchmark Tests  
+#### Model Architectures  
+#### Reformer
+* 6-layer  
+* 256-hidden  
+* 2-heads  
+* 3M parameters   
+* Trained on English text: Crime and Punishment novel by Fyodor Dostoyevsky.  
 
+#### Reformer
+* 12-layer  
+* 1024-hidden  
+* 8-heads  
+* 149M parameters   
+* Trained on English Wikipedia data - enwik8.    
+
+#### GPT2 Base
+* 12-layer  
+* 768-hidden  
+* 12-heads  
+* 117M parameters   
+* OpenAI GPT-2 English model     
+
+#### Reformer C/P - Without Axial Position Encodings
+```
+====================      INFERENCE - MEMORY - RESULT       ====================
+--------------------------------------------------------------------------------
+          Model Name             Batch Size     Seq Length    Memory in MB 
+--------------------------------------------------------------------------------
+         Reformer C/P                16             256             1523     
+         Reformer C/P                16             512             1603     
+         Reformer C/P                16             2048            2055     
+         Reformer C/P                16            16384            6327     
+--------------------------------------------------------------------------------
+```  
+
+#### Reformer en8 - Without Axial Position Encodings
+```
+====================      INFERENCE - MEMORY - RESULT       ====================
+--------------------------------------------------------------------------------
+          Model Name             Batch Size     Seq Length    Memory in MB 
+--------------------------------------------------------------------------------
+         Reformer en8                16             256             2197     
+         Reformer en8                16             512             5079     
+         Reformer en8                16             1024            8407     
+         Reformer en8                16             2048           15063     
+--------------------------------------------------------------------------------
+``` 
+
+#### GPT2 Base 
+```
+====================      INFERENCE - MEMORY - RESULT       ====================
+--------------------------------------------------------------------------------
+          Model Name             Batch Size     Seq Length    Memory in MB 
+--------------------------------------------------------------------------------
+          GPT2 Base                  16             256             3063     
+          GPT2 Base                  16             512             4761     
+          GPT2 Base                  16             1024            8827     
+          GPT2 Base                  16             2048            N/A      
+--------------------------------------------------------------------------------
+```
 
 ## Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention
 The model is based on [this paper](https://arxiv.org/pdf/2006.16236.pdf).
