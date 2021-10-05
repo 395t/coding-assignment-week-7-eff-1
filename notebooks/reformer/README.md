@@ -57,10 +57,86 @@ NOTE: Sequence Length of 512 instead of 256 used for enwik8 due to training time
 ![ptb-train](img/ptb_train.png)
 ![ptb-train](img/ptb_val.png)
 ![en8-train](img/en8_train.png)
-![en8-train](img/en8_val.png)
+![en8-train](img/en8_val.png)  
+
+## Memory Benchmark Tests  
+### Model Architectures  
+#### Reformer
+* 6-layer  
+* 256-hidden  
+* 2-heads  
+* 3M parameters   
+* Trained on English text: Crime and Punishment novel by Fyodor Dostoyevsky.  
+
+#### Reformer
+* 12-layer  
+* 1024-hidden  
+* 8-heads  
+* 149M parameters   
+* Trained on English Wikipedia data - enwik8.    
+
+#### GPT2 Base
+* 12-layer  
+* 768-hidden  
+* 12-heads  
+* 117M parameters   
+* OpenAI GPT-2 English model     
+
+### Reformer C/P - Without Axial Position Encodings
+```
+====================      INFERENCE - MEMORY - RESULT       ====================
+--------------------------------------------------------------------------------
+          Model Name             Batch Size     Seq Length    Memory in MB 
+--------------------------------------------------------------------------------
+         Reformer C/P                16             256             1523     
+         Reformer C/P                16             512             1603     
+         Reformer C/P                16             2048            2055     
+         Reformer C/P                16            16384            6327     
+--------------------------------------------------------------------------------
+```  
+
+### Reformer C/P - With Axial Position Encodings
+```
+====================      INFERENCE - MEMORY - RESULT       ====================
+--------------------------------------------------------------------------------
+          Model Name             Batch Size     Seq Length    Memory in MB 
+--------------------------------------------------------------------------------
+         Reformer C/P                16             256             1015     
+         Reformer C/P                16             512             1095     
+         Reformer C/P                16             2048            1551     
+         Reformer C/P                16            16384            6057     
+--------------------------------------------------------------------------------
+``` 
+
+### Reformer en8 - Without Axial Position Encodings
+```
+====================      INFERENCE - MEMORY - RESULT       ====================
+--------------------------------------------------------------------------------
+          Model Name             Batch Size     Seq Length    Memory in MB 
+--------------------------------------------------------------------------------
+         Reformer en8                16             256             2197     
+         Reformer en8                16             512             5079     
+         Reformer en8                16             1024            8407     
+         Reformer en8                16             2048           15063     
+--------------------------------------------------------------------------------
+``` 
+
+### GPT2 Base 
+```
+====================      INFERENCE - MEMORY - RESULT       ====================
+--------------------------------------------------------------------------------
+          Model Name             Batch Size     Seq Length    Memory in MB 
+--------------------------------------------------------------------------------
+          GPT2 Base                  16             256             3063     
+          GPT2 Base                  16             512             4761     
+          GPT2 Base                  16             1024            8827     
+          GPT2 Base                  16             2048            N/A      
+--------------------------------------------------------------------------------
+```
+
 
 ## Reference
-Pretrained model, tokenizer, and examples sourced from Huggingface.
+Pretrained model, tokenizer, and examples sourced from Huggingface.  
 https://huggingface.co/blog/reformer  
 https://huggingface.co/transformers/training.html    
 https://huggingface.co/transformers/perplexity.html
